@@ -9,8 +9,15 @@ import (
 	"sort"
 	"sync"
 
+	"github.com/fatih/color"
 	goslippi "github.com/pmcca/go-slippi"
 	"github.com/sqweek/dialog"
+)
+
+var (
+	cyan   = color.New(color.FgCyan).SprintFunc()
+	green  = color.New(color.FgGreen).SprintFunc()
+	yellow = color.New(color.FgYellow).SprintFunc()
 )
 
 type CharacterPlaytime struct {
@@ -130,7 +137,14 @@ func main() {
 	}
 	sort.Ints(sortedIDs)
 
-	fmt.Println("\n=== Playtime for each character ===")
+	const (
+		Reset  = "\033[0m"
+		Cyan   = "\033[36m"
+		Green  = "\033[32m"
+		Yellow = "\033[33m"
+	)
+
+	fmt.Println("\n=== Playtime for Each Character ===")
 
 	for _, characterID := range sortedIDs {
 		playtime := characterPlaytime[characterID]
@@ -141,26 +155,15 @@ func main() {
 
 		totalSeconds := float64(playtime.FramesPlayed) / 60
 		totalMinutes := totalSeconds / 60
+
+		fmt.Println("----------------------------------")
+		fmt.Printf("%s %s\n", cyan("Character:"), charName)
 		if totalMinutes >= 60 {
-			fmt.Printf("%s: %.2f hours, %d games\n", charName, totalMinutes/60, playtime.GameCount)
+			fmt.Printf("%s %.2f hours\n", green("Time:"), totalMinutes/60)
 		} else {
-			fmt.Printf("%s: %d minutes, %d seconds, %d games\n", charName, int(totalMinutes), int(totalSeconds)%60, playtime.GameCount)
+			fmt.Printf("%s %d minutes, %d seconds\n", green("Time:"), int(totalMinutes), int(totalSeconds)%60)
 		}
+		fmt.Printf("%s %d\n", yellow("Games:"), playtime.GameCount)
 	}
-
-	totalSeconds := float64(totalFrames) / 60
-	totalMinutes := totalSeconds / 60
-	totalHours := totalSeconds / 3600
-	totalDays := totalSeconds / 86400
-	fmt.Printf("\nTotal Games Played: %d\nTotal Time: ", totalGames)
-	if totalDays >= 1 {
-		fmt.Printf("%.2f days (%.2f hours)\n", totalDays, totalHours)
-	} else if totalHours >= 1 {
-		fmt.Printf("%.2f hours\n", totalHours)
-	} else {
-		fmt.Printf("%d minutes, %d seconds\n", int(totalMinutes), int(totalSeconds)%60)
-	}
-
-	fmt.Println("Press Enter to exit...")
 	fmt.Scanln()
 }
