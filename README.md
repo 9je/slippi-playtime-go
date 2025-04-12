@@ -17,6 +17,9 @@ Playtime is not 100% accurate as it assumes your gameplay runs at a constant rat
 
 ## Installation & Usage
 
+Download the latest release [here!](https://github.com/9je/slippi-playtime-go/releases)
+Run exe and select your replay folder
+
 ### Prerequisites
 
 Ensure you have [Go](https://go.dev/) installed on your system.
