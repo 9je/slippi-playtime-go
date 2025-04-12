@@ -4,6 +4,10 @@
 
 Slippi Playtime (Go) is a fast and efficient Slippi replay analyzer written in Go. It scans Slippi `.slp` replay files to calculate total playtime per character, based on the provided Slippi code or in-game name. The tool outputs detailed statistics, including time spent per character and total gameplay duration.
 
+## In-Game Time Accuracy Notice
+
+Playtime is not 100% accurate as it assumes your gameplay runs at a constant rate of 60 FPS. Menu, character/stage select, and pause time is not accounted for.
+
 ## Features
 
 - Parses Slippi replay files to extract gameplay statistics.
