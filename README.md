@@ -33,7 +33,7 @@
 4. Enter your Slippi code (`DBC#544`) or username (`dbcooper`).
 5. View your character playtime stats!
 
-_This is the easiest and fastest way to use the tool—no setup required._
+_This is the easiest and fastest way to use the tool, no setup required._
 
 ---
 
@@ -86,7 +86,7 @@ This will create a binary in your current directory (`slippi-playtime-go` or `sl
 ## 🤝 Contributing
 
 Found a bug? Have an idea? Open an [issue](https://github.com/9je/slippi-playtime-go/issues) or submit a [pull request](https://github.com/9je/slippi-playtime-go/pulls)!  
-All contributions are welcome—whether it's code, design, or feedback.
+All contributions are welcome, whether it's code, design, or feedback.
 
 ---
 
